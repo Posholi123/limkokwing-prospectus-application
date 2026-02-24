@@ -148,4 +148,6 @@ export default StyleSheet.create({
     fontSize: 14,
     marginBottom: 5,
   },
+
+  
 });

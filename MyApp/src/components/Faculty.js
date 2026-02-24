@@ -3,27 +3,18 @@ import { View, Text, TouchableOpacity } from 'react-native';
 import CourseCard from './CourseCard';
 import style from '../styles/style';
 
-export default function Faculty({ faculty }) {
-  const [showCourses, setShowCourses] = useState(false);
+export default function Faculty({ faculty, navigation }) {
 
   return (
     <View style={style.facultyContainer}>
       <TouchableOpacity 
-        onPress={() => setShowCourses(!showCourses)}
+        onPress={() => navigation.navigate("FacultyView", { faculty })}
         style={style.facultyButton}
       >
         <Text style={style.facultyButtonText}>
           {faculty.name}
         </Text>
       </TouchableOpacity>
-      
-      {showCourses && (
-        <View style={style.coursesContainer}>
-          {faculty.courses.map((course) => (
-            <CourseCard key={course.id} course={course} />
-          ))}
-        </View>
-      )}
     </View>
   );
 }
