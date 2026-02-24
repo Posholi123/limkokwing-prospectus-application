@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { View, Text, Button } from 'react-native';
+import style from '../styles/style';
 
 export default function CourseCard({ course }) {
-
   const [rating, setRating] = useState(0);
 
   const handleRate = () => {
@@ -12,10 +12,10 @@ export default function CourseCard({ course }) {
   };
 
   return (
-    <View style={{ margin: 10, padding: 10, borderWidth: 1 }}>
-      <Text>{course.name}</Text>
-      <Text>{course.description}</Text>
-      <Text>Rating: {rating}</Text>
+    <View style={style.courseCard}>
+      <Text style={style.courseName}>{course.name}</Text>
+      <Text style={style.courseDescription}>{course.description}</Text>
+      <Text style={style.ratingText}>Rating: {rating}</Text>
       <Button title="Rate" onPress={handleRate} />
     </View>
   );
