@@ -1,7 +1,7 @@
 import React from 'react';
 import { ScrollView } from 'react-native';
-import { faculties } from './data/faculties';
-import Faculty from './components/Faculty';
+import { faculties } from './src/data/faculties';
+import Faculty from './src/components/Faculty';
 
 export default function App() {
   return (
@@ -15,11 +15,4 @@ export default function App() {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
