@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text, Image, TouchableOpacity, Linking } from 'react-native';
 import style from '../styles/style';
 
 export default function CourseCard({ course }) {
@@ -11,12 +11,48 @@ export default function CourseCard({ course }) {
     }
   };
 
+  const openVideoLink = () => {
+    Linking.openURL(course.videoUrl);
+  };
+
   return (
     <View style={style.courseCard}>
+      {/* Course Image */}
+      <Image 
+        source={{ uri: course.image }}
+        style={style.courseImage}
+        resizeMode="cover"
+      />
+      
+      {/* Course Details */}
       <Text style={style.courseName}>{course.name}</Text>
       <Text style={style.courseDescription}>{course.description}</Text>
-      <Text style={style.ratingText}>Rating: {rating}</Text>
-      <Button title="Rate" onPress={handleRate} />
+      
+      {/* Video Preview Section - Clickable */}
+      <TouchableOpacity 
+        style={style.videoContainer}
+        onPress={openVideoLink}
+      >
+        <Text style={style.videoHeader}>▶ Watch Course Preview</Text>
+        <Text 
+          style={style.videoLink}
+          numberOfLines={1}
+          ellipsizeMode="tail"
+        >
+          Tap to open video link
+        </Text>
+      </TouchableOpacity>
+      
+      {/* Rating Section */}
+      <View style={style.ratingContainer}>
+        <Text style={style.ratingText}>Rating: {rating}/6</Text>
+        <TouchableOpacity 
+          style={style.ratingButton}
+          onPress={handleRate}
+        >
+          <Text style={style.ratingButtonText}>Rate</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
