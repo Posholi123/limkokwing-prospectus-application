@@ -19,7 +19,7 @@ export default function CourseCard({ course }) {
     <View style={style.courseCard}>
       {/* Course Image */}
       <Image 
-        source={{ uri: course.image }}
+        source={course.image}
         style={style.courseImage}
         resizeMode="cover"
       />
