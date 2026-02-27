@@ -4,6 +4,7 @@ export default StyleSheet.create({
   // App.js styles
   container: {
     padding: 20,
+    borderBlockColor: "#4c5c74",
   },
   campusImage: {
     width: '100%',
@@ -14,13 +15,13 @@ export default StyleSheet.create({
   descriptionContainer: {
     marginBottom: 15,
     padding: 15,
-    backgroundColor: '#f5f5f5',
+    backgroundColor: '#F1F5F9',
     borderRadius: 10,
   },
   descriptionText: {
     fontSize: 14,
     color: '#333',
-    textAlign: 'center',
+    textAlign: 'justify',
     lineHeight: 20,
   },
   separator: {
@@ -36,12 +37,15 @@ export default StyleSheet.create({
     marginBottom: 15,
     textAlign: 'center',
   },
+
   facultyGrid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'space-between',
+    flexDirection: 'column',
+    alignItems: 'center',       
+    justifyContent: 'center',
     marginBottom: 10,
-  },
+    width: '100%',
+ },
+
   quizContainer: {
     alignItems: 'center',
     justifyContent: 'center',
@@ -77,13 +81,14 @@ export default StyleSheet.create({
 
   // Faculty.js styles
   facultyContainer: {
-    width: '48%',
+    width: '90%',               
     marginBottom: 15,
+    alignItems: 'center',
   },
   facultyButton: {
     backgroundColor: '#4A90E2',
     height: 100,
-    width:250,
+    width: '100%',             
     borderRadius: 10,
     justifyContent: 'center',
     alignItems: 'center',
@@ -93,7 +98,7 @@ export default StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 4,
     elevation: 3,
-  },
+ },
   facultyButtonText: {
     color: 'white',
     fontSize: 16,

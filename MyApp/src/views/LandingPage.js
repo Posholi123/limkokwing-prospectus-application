@@ -7,10 +7,6 @@ import style from '../styles/style';
 
 export default function LandingPage({ navigation }) {
 
-  // Split faculties into two columns (3 in first column, 2 in second)
-  const firstColumnFaculties = faculties.slice(0, 3);
-  const secondColumnFaculties = faculties.slice(3, 5);
-
   return (
     <ScrollView style={style.container}>
       
@@ -37,31 +33,15 @@ export default function LandingPage({ navigation }) {
       {/* Our Faculties Heading */}
       <Text style={style.sectionHeading}>Our Faculties</Text>
 
-      {/* Faculty Grid - Two Columns */}
+      {/* Faculty Grid - Single Column */}
       <View style={style.facultyGrid}>
-        
-        {/* First Column - 3 Faculties */}
-        <View style={{ width: '48%' }}>
-          {firstColumnFaculties.map((faculty) => (
-            <Faculty 
-              key={faculty.id} 
-              faculty={faculty}
-              navigation={navigation}
-            />
-          ))}
-        </View>
-
-        {/* Second Column - 2 Faculties */}
-        <View style={{ width: '48%' }}>
-          {secondColumnFaculties.map((faculty) => (
-            <Faculty 
-              key={faculty.id} 
-              faculty={faculty}
-              navigation={navigation}
-            />
-          ))}
-        </View>
-
+        {faculties.map((faculty) => (
+          <Faculty 
+            key={faculty.id} 
+            faculty={faculty}
+            navigation={navigation}
+          />
+        ))}
       </View>
 
       {/* Second Separator */}
