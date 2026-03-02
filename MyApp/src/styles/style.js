@@ -4,11 +4,10 @@ export default StyleSheet.create({
   // App.js styles
   container: {
     padding: 20,
-    borderBlockColor: "#4c5c74",
   },
   campusImage: {
     width: '100%',
-    height:400,
+    height:250,
     marginBottom: 10,
     borderRadius: 10,
   },
@@ -227,6 +226,14 @@ ratingButtonText: {
   fontSize: 14,
 },
 
+videoPlayer: {
+  width: '100%',
+  height: 200,
+  marginVertical: 10,
+  borderRadius: 8,
+},
+
+// rating styles
 ratingText: {
   fontSize: 16,
   color: '#0F172A',

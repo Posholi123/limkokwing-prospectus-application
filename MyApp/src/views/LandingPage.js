@@ -12,7 +12,7 @@ export default function LandingPage({ navigation }) {
       
       {/* Campus Image */}
       <Image 
-        source={require('../../assets/campus.jpg')}
+        source={require('../../assets/images/campus.png')}
         style={style.campusImage}
         resizeMode="cover"
       />
