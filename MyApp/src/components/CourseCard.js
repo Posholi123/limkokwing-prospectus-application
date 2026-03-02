@@ -1,15 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
-import { Video } from 'expo-av'; // or import Video from 'react-native-video'
+import { Video } from 'expo-av'; 
 import style from '../styles/style';
 
 export default function CourseCard({ course }) {
   const [rating, setRating] = useState(0);
   const [showVideo, setShowVideo] = useState(false);
+  const videoRef = useRef(null);
 
   const handleRate = () => {
     if (rating < 6) {
       setRating(rating + 1);
+    }
+  };
+
+  const toggleVideo = async () => {
+    if (showVideo) {
+      // Pause video when hiding
+      if (videoRef.current) {
+        await videoRef.current.pauseAsync();
+      }
+      setShowVideo(false);
+    } else {
+      setShowVideo(true);
     }
   };
 
@@ -26,26 +39,29 @@ export default function CourseCard({ course }) {
       <Text style={style.courseName}>{course.name}</Text>
       <Text style={style.courseDescription}>{course.description}</Text>
       
-      {/* Video Preview Section */}
+      {/* Video Preview Button */}
       <TouchableOpacity 
-        style={style.videoContainer}
-        onPress={() => setShowVideo(!showVideo)}
+        style={style.videoButton}
+        onPress={toggleVideo}
       >
-        <Text style={style.videoHeader}>
+        <Text style={style.videoButtonText}>
           {showVideo ? '▶ Hide Video Preview' : '▶ Show Video Preview'}
         </Text>
       </TouchableOpacity>
       
       {/* Video Player (shown when toggled) */}
       {showVideo && (
-        <Video
-          source={course.videoUrl}
-          style={style.videoPlayer}
-          useNativeControls
-          resizeMode="contain"
-          isLooping
-          shouldPlay={false}
-        />
+        <View style={style.videoPlayerContainer}>
+          <Video
+            ref={videoRef}
+            source={course.videoUrl}
+            style={style.videoPlayer}
+            useNativeControls={true}
+            resizeMode="contain"
+            isLooping={false}
+            shouldPlay={true}
+          />
+        </View>
       )}
       
       {/* Rating Section */}
