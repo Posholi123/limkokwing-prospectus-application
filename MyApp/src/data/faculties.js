@@ -2,7 +2,6 @@ export const faculties = [
   {
     id: 1,
     name: "Faculty of Design Innovation",
-    //image: require('../../assets/images/design.jpg'),
     courses: [
       {
         id: 1,
@@ -44,7 +43,6 @@ export const faculties = [
   {
     id: 2,
     name: "Faculty of Communication, Media and Broadcasting",
-    //image: require('../../assets/images/media.jpg'),
     courses: [
       {
         id: 1,
@@ -86,7 +84,6 @@ export const faculties = [
   {
     id: 3,
     name: "Faculty of Architecture and the Built Environment",
-    //image: require('../../assets/images/architecture.jpg'),
     courses: [
       {
         id: 1,
@@ -128,7 +125,6 @@ export const faculties = [
   {
     id: 4,
     name: "Faculty of Business and Globalization",
-   // image: require('../../assets/images/business.jpg'),
     courses: [
       {
         id: 1,
@@ -170,7 +166,6 @@ export const faculties = [
   {
     id: 5,
     name: "Faculty of Information and Communication Technology",
-   // image: require('../../assets/images/ict.jpg'),
     courses: [
       {
         id: 1,

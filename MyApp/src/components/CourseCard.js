@@ -1,11 +1,11 @@
 import React, { useState, useRef } from 'react';
-import { View, Text, Image, TouchableOpacity } from 'react-native';
+import { View, Text, Image, TouchableOpacity, Modal } from 'react-native';
 import { Video } from 'expo-av'; 
 import style from '../styles/style';
 
 export default function CourseCard({ course }) {
   const [rating, setRating] = useState(0);
-  const [showVideo, setShowVideo] = useState(false);
+  const [videoVisible, setVideoVisible] = useState(false);
   const videoRef = useRef(null);
 
   const handleRate = () => {
@@ -14,16 +14,15 @@ export default function CourseCard({ course }) {
     }
   };
 
-  const toggleVideo = async () => {
-    if (showVideo) {
-      // Pause video when hiding
-      if (videoRef.current) {
-        await videoRef.current.pauseAsync();
-      }
-      setShowVideo(false);
-    } else {
-      setShowVideo(true);
+  const openVideo = () => {
+    setVideoVisible(true);
+  };
+
+  const closeVideo = async () => {
+    if (videoRef.current) {
+      await videoRef.current.pauseAsync();
     }
+    setVideoVisible(false);
   };
 
   return (
@@ -42,27 +41,40 @@ export default function CourseCard({ course }) {
       {/* Video Preview Button */}
       <TouchableOpacity 
         style={style.videoButton}
-        onPress={toggleVideo}
+        onPress={openVideo}
       >
         <Text style={style.videoButtonText}>
-          {showVideo ? '▶ Hide Video Preview' : '▶ Show Video Preview'}
+          ▶ Watch Video Preview
         </Text>
       </TouchableOpacity>
       
-      {/* Video Player (shown when toggled) */}
-      {showVideo && (
-        <View style={style.videoPlayerContainer}>
+      {/* Fullscreen Video Modal */}
+      <Modal
+        visible={videoVisible}
+        animationType="slide"
+        onRequestClose={closeVideo}
+      >
+        <View style={style.fullscreenVideoContainer}>
           <Video
+          
             ref={videoRef}
             source={course.videoUrl}
-            style={style.videoPlayer}
+            style={style.fullscreenVideo}
             useNativeControls={true}
             resizeMode="contain"
-            isLooping={false}
             shouldPlay={true}
+            isLooping={false}
           />
+          
+          {/* Close Button */}
+          <TouchableOpacity 
+            style={style.closeVideoButton}
+            onPress={closeVideo}
+          >
+            <Text style={style.closeVideoButtonText}>✕ Close</Text>
+          </TouchableOpacity>
         </View>
-      )}
+      </Modal>
       
       {/* Rating Section */}
       <View style={style.ratingContainer}>

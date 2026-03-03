@@ -1,11 +1,18 @@
 import React from 'react';
-import { ScrollView, View, Image, Text } from 'react-native';
+import { ScrollView, View, Image, Text, TouchableOpacity } from 'react-native';
 import { faculties } from '../data/faculties';
 import Faculty from '../components/Faculty';
-import QuizBox from '../components/QuizBox';
 import style from '../styles/style';
 
 export default function LandingPage({ navigation }) {
+
+  const navigateToQuiz = () => {
+    navigation.navigate('QuizView');
+  };
+
+  const navigateToContact = () => {
+    navigation.navigate('ContactView');
+  };
 
   return (
     <ScrollView style={style.container}>
@@ -47,26 +54,25 @@ export default function LandingPage({ navigation }) {
       {/* Second Separator */}
       <View style={style.separator} />
 
-      {/* Quiz Box - Center Aligned */}
-      <View style={style.quizContainer}>
-        <QuizBox />
+      {/* Quiz and Contact Buttons */}
+      <View style={style.twoButtonsContainer}>
+        <TouchableOpacity 
+          style={[style.twoButton, style.quizButton]}
+          onPress={navigateToQuiz}
+        >
+          <Text style={style.twoButtonText}>Take a Quiz</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity 
+          style={[style.twoButton, style.contactButton]}
+          onPress={navigateToContact}
+        >
+          <Text style={style.twoButtonText}>Contact Us</Text>
+        </TouchableOpacity>
       </View>
 
       {/* Third Separator */}
       <View style={style.separator} />
-
-      {/* Contact Information */}
-      <View style={style.contactContainer}>
-        <Text style={style.contactTitle}>Contact Us</Text>
-        <Text style={style.contactInfoBold}>
-          Limkokwing University of Creative Technology
-        </Text>
-        <Text style={style.contactInfo}>Maseru, Lesotho</Text>
-        <Text style={style.contactInfo}>Phone: +266 2231 5767</Text>
-        <Text style={style.contactInfo}>Toll Free: 80022066 or 80022088</Text>
-        <Text style={style.contactInfo}>Email: info@limkokwing.ac.ls</Text>
-        <Text style={style.contactInfo}>Website: www.limkokwing.ac.ls</Text>
-      </View>
 
     </ScrollView>
   );
