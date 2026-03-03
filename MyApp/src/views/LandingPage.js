@@ -1,18 +1,10 @@
 import React from 'react';
-import { ScrollView, View, Image, Text, TouchableOpacity } from 'react-native';
+import { ScrollView, View, Image, Text } from 'react-native';
 import { faculties } from '../data/faculties';
 import Faculty from '../components/Faculty';
 import style from '../styles/style';
 
 export default function LandingPage({ navigation }) {
-
-  const navigateToQuiz = () => {
-    navigation.navigate('QuizView');
-  };
-
-  const navigateToContact = () => {
-    navigation.navigate('ContactView');
-  };
 
   return (
     <ScrollView style={style.container}>
@@ -51,28 +43,8 @@ export default function LandingPage({ navigation }) {
         ))}
       </View>
 
-      {/* Second Separator */}
-      <View style={style.separator} />
-
-      {/* Quiz and Contact Buttons */}
-      <View style={style.twoButtonsContainer}>
-        <TouchableOpacity 
-          style={[style.twoButton, style.quizButton]}
-          onPress={navigateToQuiz}
-        >
-          <Text style={style.twoButtonText}>Take a Quiz</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity 
-          style={[style.twoButton, style.contactButton]}
-          onPress={navigateToContact}
-        >
-          <Text style={style.twoButtonText}>Contact Us</Text>
-        </TouchableOpacity>
-      </View>
-
-      {/* Third Separator */}
-      <View style={style.separator} />
+      {/* Bottom padding */}
+      <View style={{ height: 20 }} />
 
     </ScrollView>
   );

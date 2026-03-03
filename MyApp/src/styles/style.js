@@ -4,7 +4,7 @@ export default StyleSheet.create({
   // App.js / LandingPage styles
   container: {
     padding: 20,
-    backgroundColor: '#F8FAFC',
+    backgroundColor: '#071420',
   },
   campusImage: {
     width: '100%',
@@ -15,12 +15,12 @@ export default StyleSheet.create({
   descriptionContainer: {
     marginBottom: 15,
     padding: 15,
-    backgroundColor: '#dfeaf5',
+    backgroundColor: '#02162e',
     borderRadius: 10,
   },
   descriptionText: {
     fontSize: 14,
-    color: '#333',
+    color: '#8190a5',
     textAlign: 'justify',
     lineHeight: 20,
   },
@@ -33,7 +33,7 @@ export default StyleSheet.create({
   sectionHeading: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#333',
+    color: '#ffffff',
     marginBottom: 15,
     textAlign: 'center',
   },
@@ -111,6 +111,38 @@ export default StyleSheet.create({
     textAlign: 'center',
   },
 
+  // Tab Label
+  tabLabel: {
+    fontSize: 12,
+    color:'#ffffff',
+    fontWeight: 'bold',
+    marginBottom: 5,
+  },
+
+  // Tab Bar Style
+  tabBarStyle: {
+    backgroundColor: '#02162e',
+    borderTopWidth: 2,
+    borderTopColor: '#13034b',
+    height: 70,
+    paddingBottom: 5,
+    paddingTop: 5,
+  },
+
+  // Header Style
+  headerStyle: {
+    backgroundColor: '#02162e',
+  },
+  headerTitleStyle: {
+    color: '#ffffff',
+    fontWeight: 'bold',
+  },
+
+  // Bottom spacing
+  bottomSpacing: {
+    height: 20,
+  },
+
   // FacultyView.js specific styles
   facultyHeader: {
     fontSize: 24,
@@ -120,7 +152,7 @@ export default StyleSheet.create({
     marginVertical: 20,
     paddingBottom: 10,
     borderBottomWidth: 2,
-    borderBottomColor: '#FF6B6B',
+    borderBottomColor: '#4A90E2',
     width: '100%',
   },
   coursesContainer: {
@@ -356,6 +388,14 @@ export default StyleSheet.create({
     fontWeight: '500',
     textDecorationLine: 'underline',
   },
+
+  mapText: {
+  fontSize: 14,
+  fontWeight: 'bold',
+  color: 'white',   
+  marginBottom: 5,
+  },
+
   hoursCard: {
     backgroundColor: '#F1F5F9',
     borderRadius: 10,

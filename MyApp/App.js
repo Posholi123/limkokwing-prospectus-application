@@ -2,10 +2,9 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import LandingPage from './src/views/LandingPage';
+import BottomTabNavigator from './src/views/BottomTabNavigator';
 import FacultyView from './src/views/FacultyView';
-import ContactView from './src/views/ContactView';
-import QuizView from './src/views/QuizView';
+import style from './src/styles/style';
 
 const Stack = createNativeStackNavigator();
 
@@ -14,26 +13,19 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen 
-          name="LandingPage" 
-          component={LandingPage}
-          options={{ title: "Limkokwing Prospectus" }}
+          name="MainTabs" 
+          component={BottomTabNavigator} 
+          options={{ headerShown: false }}
         />
         <Stack.Screen 
           name="FacultyView" 
           component={FacultyView}
           options={({ route }) => ({ 
-            title: route.params?.faculty?.name || "Faculty Courses" 
+            title: route.params?.faculty?.name || "Faculty Courses",
+            headerStyle: style.headerStyle,
+            headerTitleStyle: style.headerTitleStyle,
+            headerTintColor: '#ffffff',
           })}
-        />
-        <Stack.Screen 
-          name="ContactView" 
-          component={ContactView}
-          options={{ title: "Contact Us" }}
-        />
-        <Stack.Screen 
-          name="QuizView" 
-          component={QuizView}
-          options={{ title: "Take a Quiz" }}
         />
       </Stack.Navigator>
     </NavigationContainer>

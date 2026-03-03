@@ -64,8 +64,8 @@ export default function ContactView() {
 
       <View style={style.mapPlaceholder}>
         <Text style={style.mapText}> Campus Location</Text>
-        <Text style={style.mapSubtext}>Maseru, Lesotho</Text>
-        <Text style={style.mapSubtext}>Open in Maps →</Text>
+        <Text style={style.mapText}>Maseru, Lesotho</Text>
+        <Text style={style.mapText}>Open in Maps →</Text>
       </View>
 
       <View style={style.hoursCard}>
